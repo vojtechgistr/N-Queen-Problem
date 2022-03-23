@@ -4,11 +4,12 @@
 using namespace std;
 
 class QueenProblem {
+    int numberOfSolutions = 0;
     public:
     void solve(int queens, int boardSize) {
         vector <vector <string>> board = createBoard(boardSize);
         placeQueens(board, 0);
-
+        cout << numberOfSolutions << " solutions in total.";
     };
     
     private:
@@ -24,7 +25,8 @@ class QueenProblem {
     };
 
     void addSolution(vector <vector <string>> board) {
-        cout << "Solution:" << endl;
+        cout << "Solution " << numberOfSolutions+1 << ":" << endl;
+        numberOfSolutions++;
         for(int e = 0;e < board.size();e++) {
             for(int f = 0;f < board[e].size();f++) {
                 cout << " " << board[e][f] << " ";
